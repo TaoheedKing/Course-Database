@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>5</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>225</x>
+      <y>160</y>
+      <w>235</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+::CourseDBManagerInterface
+--
+--
++add(String id, int crn, int credits, String roomNum, String instructor): void
++get(int crn): CourseDBElement
++readFile(File input): void
++showAll(): ArrayList&lt;String&gt;
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>590</x>
+      <y>160</y>
+      <w>130</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+::CourseDBStructureInterface
+--
+--
++add(CourseDBElement element): void
++get(int crn): CourseDBElement
++getTableSize(): int
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>830</x>
+      <y>160</y>
+      <w>145</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+::Comparable
+--
+--
+~compareTo(CourseDBElement element): int
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>115</x>
+      <y>345</y>
+      <w>90</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>::CourseDBGUI
+--
+--
++main(String[] args): void
++start(Stage stage): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>255</x>
+      <y>325</y>
+      <w>240</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>::CourseDBManager
+--
+~table: CourseDBStructure
+--
++CourseDBManager(): ctor
++add(String id, int crn, int credits, String roomNum, String instructor): void
++get(int crn): CourseDBElement
++readFile(File input): void
++showAll(): ArrayList&lt;String&gt;
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>575</x>
+      <y>305</y>
+      <w>170</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>::CourseDBStructure
+--
+#hashTable: LinkedList&lt;CourseDBElement&gt;[]
+-tablesize: int
+--
++CourseDBStructure(int size): ctor
++CourseDBStructure(String test, int size): ctor
+-hash(CourseDBElement element): int
++add(CourseDBElement element): /**
+	 * @param element the course to add 
+	 */&#13;
+void
++get(int crn): CourseDBElement
++getTableSize(): int
++ElementString(CourseDBElement element): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>820</x>
+      <y>320</y>
+      <w>290</w>
+      <h>115</h>
+    </coordinates>
+    <panel_attributes>::CourseDBElement
+--
+~CourseId: String
+~CRN: int
+~credits: int
+~room: String
+~teacher: String
+--
++CourseDBElement(String course, int crn, int credits, String room, String instructor): ctor
++CourseDBElement(): ctor
++getCRN(): int
++compareTo(CourseDBElement element): int
++setCRN(int parseInt): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>250</x>
+      <y>355</y>
+      <w>15</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>200</x>
+      <y>355</y>
+      <w>65</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;110.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>530</x>
+      <y>360</y>
+      <w>55</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>90.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>490</x>
+      <y>360</y>
+      <w>95</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;170.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>775</x>
+      <y>360</y>
+      <w>55</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>90.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>360</y>
+      <w>75</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;130.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>655</x>
+      <y>215</y>
+      <w>15</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>345</x>
+      <y>225</y>
+      <w>15</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;200.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>865</x>
+      <y>200</y>
+      <w>15</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;240.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>485</x>
+      <y>65</y>
+      <w>195</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>TAOHEED KING
+FULL DESIGN FOR ASSIGNMENT 4</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
